@@ -1,11 +1,15 @@
+
 events = input().split("|")
+
 total_energy = 100
 total_coins = 100
 bakery_is_open = True
+
 for event in events:
     event_items = event.split("-")
     type_of_event = event_items[0]
     value_of_event = int(event_items[1])
+
     if type_of_event == "rest":
         initial_energy = total_energy
         total_energy += value_of_event
@@ -14,6 +18,7 @@ for event in events:
         gained_energy = total_energy - initial_energy
         print(f"You gained {gained_energy} energy.")
         print(f"Current energy: {total_energy}.")
+
     elif type_of_event == "order":
         if total_energy >= 30:
             total_coins += value_of_event
@@ -36,4 +41,3 @@ if bakery_is_open:  # if bakery_is_open == True
 
 else:  # if bakery_is_open == False
     print(f"Closed! Cannot afford {type_of_event}.")
-
